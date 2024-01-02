@@ -5,20 +5,25 @@ const ResCard = (props) => {
   const { cloudinaryImageId, name, avgRating, sla, cuisines, costForTwo } =
     restData?.info;
   return (
-    <div className="res-card">
+    <div
+      className="m-4 p-4 w-[280px] border border-box border-grey rounded-lg overflow-hidden transition-transform ease-in-out duration-300 transform hover:scale-105 "
+      style={{ backgroundColor: "#f0f0f0" }}
+    >
       <img
         className="cardImage"
         src={CDN_URL + cloudinaryImageId}
         alt="ItemLogo"
       ></img>
-      <h3 className="food-card-title ">{name}</h3>
-      <h4 className="food-card-description">{cuisines}</h4>
-      <div className="rating-container">
+      <h3 className="font-bold py-4 text-lg">{name}</h3>
+      <h4 className="flex flex-wrap overflow-hidden max-w-full h-6">
+        {cuisines.join(",")}
+      </h4>
+      <div className="flex justify-between">
         <h3 className="rating">{avgRating}</h3>
         <span className="dot">·</span>
-        <h3 className="time">{sla.slaString}</h3>
+        <h3 className="px-2">{sla.slaString}</h3>
         <span className="dot">·</span>
-        <h3 className="food-card-price">{costForTwo}</h3>
+        <h3 className="px-2">{costForTwo}</h3>
       </div>
     </div>
   );
